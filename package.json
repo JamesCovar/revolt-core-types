@@ -1,0 +1,22 @@
+{
+  "name": "@revolt/revolt-core-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "publish": "publish --registry https://registry.smartfeature.io/"
+  },
+  "keywords": [],
+  "author": "JamesCorona",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "zod": "^3.24.2"
+  }
+}

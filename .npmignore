@@ -1,0 +1,26 @@
+# Ignore source files (only publish compiled files)
+src/
+
+# Ignore TypeScript config and build-related files
+tsconfig.json
+tsconfig.*.json
+
+# Ignore dependencies lock files (not needed for libraries)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Ignore build artifacts and temp files
+node_modules/
+dist/
+
+# Keep only the built version
+!dist/**
+
+# Ignore development tools and editor-specific files
+.git/
+.gitignore
+.npmignore
+.DS_Store
+.vscode/
+.idea/
