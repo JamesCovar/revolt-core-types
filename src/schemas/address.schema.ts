@@ -43,4 +43,9 @@ const UpdateAddressSchema = z.discriminatedUnion("entityType", [
 
 const GetAddressSchema = AddressSchema;
 
-export { CreateAddressSchema, UpdateAddressSchema, GetAddressSchema };
+export {
+  CreateAddressSchema,
+  UpdateAddressSchema,
+  GetAddressSchema,
+  BaseAddressSchema,
+};

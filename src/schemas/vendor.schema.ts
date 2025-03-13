@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { CreateFullPersonSchema, PersonSchema } from "./person.schema";
+import { CreateFullCompanySchema } from "./company.schema";
 
 const IDSchema = z.string().uuid();
 
@@ -32,9 +34,27 @@ const UpdateVendorSchema = z.discriminatedUnion("personality", [
 //TODO: Add person and company schemas
 const GetVendorSchema = VendorSchema;
 
+const CreateFullVendorPersonSchema = z.object({
+  personality: z.literal("PERSON"),
+  person: CreateFullPersonSchema,
+  contacts: CreateFullPersonSchema,
+});
+
+const CreateFullVendorCompanySchema = z.object({
+  personality: z.literal("COMPANY"),
+  company: CreateFullCompanySchema,
+  contacts: CreateFullPersonSchema,
+});
+
+const CreateFullVendorSchema = z.discriminatedUnion("personality", [
+  CreateFullVendorPersonSchema,
+  CreateFullVendorCompanySchema,
+]);
+
 export {
   CreateVendorSchema,
   UpdateVendorSchema,
   VendorSchema,
   GetVendorSchema,
+  CreateFullVendorSchema,
 };
