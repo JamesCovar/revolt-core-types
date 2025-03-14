@@ -2,18 +2,29 @@ import { z } from "zod";
 
 const IDSchema = z.string().uuid();
 
+enum ADDRESS_TYPE_ENUM {
+  RESIDENTIAL = "RESIDENTIAL",
+  BUSINESS = "BUSINESS",
+  MAILING = "MAILING",
+  BILLING = "BILLING",
+  SHIPPING = "SHIPPING",
+  WORK = "WORK",
+}
+
+const ADDRESS_TYPE_ENUM_SCHEMA = z.nativeEnum(ADDRESS_TYPE_ENUM);
+
 const BaseAddressSchema = z.object({
   id: IDSchema,
-  searchId: z.string(),
-  street: z.string(),
-  outdoorNumber: z.string(),
-  interiorNumber: z.string(),
-  district: z.string(),
-  city: z.string(),
-  state: z.string(),
-  zip: z.string(),
-  country: z.string(),
-  addressType: z.string(),
+  searchId: z.string().optional(),
+  street: z.string().optional(),
+  outdoorNumber: z.string().optional(),
+  interiorNumber: z.string().optional(),
+  district: z.string().optional(),
+  city: z.string().optional(),
+  state: z.string().optional(),
+  zip: z.string().optional(),
+  country: z.string().optional(),
+  addressType: ADDRESS_TYPE_ENUM_SCHEMA,
 });
 
 const PersonAddressSchema = BaseAddressSchema.extend({
@@ -48,4 +59,5 @@ export {
   UpdateAddressSchema,
   GetAddressSchema,
   BaseAddressSchema,
+  ADDRESS_TYPE_ENUM,
 };

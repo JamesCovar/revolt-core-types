@@ -1,24 +1,34 @@
 import { z } from "zod";
 import { DocumentBankSchema } from "./document.schema";
+import { VENDOR_TYPE_ENUM } from "./vendor.schema";
 
 const IDSchema = z.string().uuid();
 
+enum BANK_ACCOUNT_TYPE_ENUM {
+  "CHECKING" = "CHECKING",
+  "SAVINGS" = "SAVINGS",
+  "INVESTMENT" = "INVESTMENT",
+  "CREDIT_CARD" = "CREDIT_CARD",
+}
+
+const BANK_ACCOUNT_TYPE_ENUM_SCHEMA = z.nativeEnum(BANK_ACCOUNT_TYPE_ENUM);
+
 const BankAccountSchema = z.object({
   id: IDSchema,
-  accountType: z.string(),
+  accountType: BANK_ACCOUNT_TYPE_ENUM_SCHEMA,
   accountNumber: z.string(),
   routingNumber: z.string(),
 });
 
 const BankPersonSchema = z.object({
   personId: IDSchema,
-  type: z.literal("PERSON"),
+  type: z.literal(VENDOR_TYPE_ENUM.PERSON),
   ...BankAccountSchema.shape,
 });
 
 const BankCompanySchema = z.object({
   companyId: IDSchema,
-  type: z.literal("COMPANY"),
+  type: z.literal(VENDOR_TYPE_ENUM.COMPANY),
   ...BankAccountSchema.shape,
 });
 
@@ -52,4 +62,6 @@ export {
   BankSchema,
   BankAccountSchema,
   CreateFullBankSchema,
+  BANK_ACCOUNT_TYPE_ENUM_SCHEMA,
+  BANK_ACCOUNT_TYPE_ENUM,
 };

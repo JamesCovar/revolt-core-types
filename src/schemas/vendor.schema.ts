@@ -4,15 +4,22 @@ import { CreateFullCompanySchema } from "./company.schema";
 
 const IDSchema = z.string().uuid();
 
+enum VENDOR_TYPE_ENUM {
+  COMPANY = "COMPANY",
+  PERSON = "PERSON",
+}
+
+const VENDOR_TYPE_ENUM_SCHEMA = z.nativeEnum(VENDOR_TYPE_ENUM);
+
 const VendorCompanySchema = z.object({
   id: IDSchema,
-  personality: z.literal("COMPANY"),
+  personality: z.literal(VENDOR_TYPE_ENUM.COMPANY),
   company: IDSchema,
 });
 
 const VendorPersonSchema = z.object({
   id: IDSchema,
-  personality: z.literal("PERSON"),
+  personality: z.literal(VENDOR_TYPE_ENUM.PERSON),
   person: IDSchema,
 });
 
@@ -37,13 +44,13 @@ const GetVendorSchema = VendorSchema;
 const CreateFullVendorPersonSchema = z.object({
   personality: z.literal("PERSON"),
   person: CreateFullPersonSchema,
-  contacts: CreateFullPersonSchema,
+  contacts: z.array(CreateFullPersonSchema),
 });
 
 const CreateFullVendorCompanySchema = z.object({
   personality: z.literal("COMPANY"),
   company: CreateFullCompanySchema,
-  contacts: CreateFullPersonSchema,
+  contacts: z.array(CreateFullPersonSchema),
 });
 
 const CreateFullVendorSchema = z.discriminatedUnion("personality", [
@@ -57,4 +64,6 @@ export {
   VendorSchema,
   GetVendorSchema,
   CreateFullVendorSchema,
+  VENDOR_TYPE_ENUM,
+  VENDOR_TYPE_ENUM_SCHEMA,
 };
