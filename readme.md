@@ -1,6 +1,11 @@
 # Changelog
 
-## [1.0.1] - 2024-03-12
+## [1.0.2] - 2025-03-13
+
+- Determined optional schema properties
+- Declared enums for VENDOR_TYPE ADDRESS_TYPE BANK_ACCOUNT_TYPE
+
+## [1.0.1] - 2025-03-12
 
 - Added secondary Zod schemas: Bank, Documents, and Company Members.
 - Introduced CreateFullVendor Zod schema, providing a complete structure for vendor creation.
