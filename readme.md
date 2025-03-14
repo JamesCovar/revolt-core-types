@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.5] - 2025-03-13
+
+- Fix: Include personId | companyId inside CreateBank Schema
+- Fix: Omit id insife CreateBank Schema
+
 ## [1.0.2] - 2025-03-13
 
 - Determined optional schema properties

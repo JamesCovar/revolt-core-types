@@ -22,13 +22,13 @@ const BankAccountSchema = z.object({
 
 const BankPersonSchema = z.object({
   personId: IDSchema,
-  type: z.literal(VENDOR_TYPE_ENUM.PERSON),
+  type: z.literal("PERSON"),
   ...BankAccountSchema.shape,
 });
 
 const BankCompanySchema = z.object({
   companyId: IDSchema,
-  type: z.literal(VENDOR_TYPE_ENUM.COMPANY),
+  type: z.literal("COMPANY"),
   ...BankAccountSchema.shape,
 });
 
@@ -38,8 +38,8 @@ const BankSchema = z.discriminatedUnion("type", [
 ]);
 
 const CreateBankSchema = z.discriminatedUnion("type", [
-  BankPersonSchema.omit({ personId: true }),
-  BankCompanySchema.omit({ companyId: true }),
+  BankPersonSchema.omit({ id: true }),
+  BankCompanySchema.omit({ id: true }),
 ]);
 
 const UpdateBankSchema = z.discriminatedUnion("type", [

@@ -13,13 +13,13 @@ const VENDOR_TYPE_ENUM_SCHEMA = z.nativeEnum(VENDOR_TYPE_ENUM);
 
 const VendorCompanySchema = z.object({
   id: IDSchema,
-  personality: z.literal(VENDOR_TYPE_ENUM.COMPANY),
+  personality: z.literal("COMPANY"),
   company: IDSchema,
 });
 
 const VendorPersonSchema = z.object({
   id: IDSchema,
-  personality: z.literal(VENDOR_TYPE_ENUM.PERSON),
+  personality: z.literal("PERSON"),
   person: IDSchema,
 });
 
