@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.6] - 2025-03-21
+
+- Fix: Include Person and Company schema on CreateVendor type
+
 ## [1.0.5] - 2025-03-13
 
 - Fix: Include personId | companyId inside CreateBank Schema
