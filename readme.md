@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.8] - 2025-03-21
+
+- Fix: Change optional properties for nullables, schemas affected: [ADDRESS, PERSON, COMPANY]
+
 ## [1.0.6] - 2025-03-21
 
 - Fix: Include Person and Company schema on CreateVendor type

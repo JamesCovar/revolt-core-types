@@ -7,11 +7,11 @@ import { CreateFullMemberSchema } from "./member.schema";
 const CompanySchema = z.object({
   id: z.string().uuid(),
   name: z.string(),
-  taxId: z.string(),
-  legalForm: z.string(),
-  tradeName: z.string(),
-  residency: z.string(),
-  incoporationRegime: z.string(),
+  taxId: z.string().nullable(),
+  legalForm: z.string().nullable(),
+  tradeName: z.string().nullable(),
+  residency: z.string().nullable(),
+  incorporationRegime: z.string().nullable(),
 });
 
 const CreateCompanySchema = CompanySchema.omit({ id: true });
