@@ -24,8 +24,14 @@ const VendorPersonSchema = z.object({
 });
 
 const VendorSchema = z.discriminatedUnion("personality", [
-  VendorCompanySchema,
-  VendorPersonSchema,
+  z.object({
+    ...VendorCompanySchema.shape,
+    company: CreateFullCompanySchema,
+  }),
+  z.object({
+    ...VendorPersonSchema.shape,
+    person: CreateFullPersonSchema,
+  }),
 ]);
 
 const CreateVendorSchema = z.discriminatedUnion("personality", [
@@ -39,7 +45,11 @@ const UpdateVendorSchema = z.discriminatedUnion("personality", [
 ]);
 
 //TODO: Add person and company schemas
-const GetVendorSchema = VendorSchema;
+const GetVendorSchema = VendorSchema.and(
+  z.object({
+    contacts: z.array(CreateFullPersonSchema),
+  })
+);
 
 const CreateFullVendorPersonSchema = z.object({
   personality: z.literal("PERSON"),
