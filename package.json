@@ -1,13 +1,13 @@
 {
   "name": "@revolt/revolt-core-types",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "publish": "npm run build && npm publish --registry https://registry.smartfeature.io/"
+    "deploy": "npm run build && npm publish --registry https://registry.smartfeature.io/ --force"
   },
   "keywords": [],
   "author": "JamesCorona",

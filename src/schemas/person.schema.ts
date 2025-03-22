@@ -7,13 +7,13 @@ const PersonSchema = z.object({
   id: z.string().uuid(),
   firstName: z.string(),
   firstLastName: z.string(),
-  secondLastName: z.string().nullable(),
-  email: z.string().nullable(),
-  phone: z.string().nullable(),
-  taxId: z.string().nullable(),
-  residency: z.string().nullable(),
+  secondLastName: z.string().optional(),
+  email: z.string().optional(),
+  phone: z.string().optional(),
+  taxId: z.string().optional(),
+  residency: z.string().optional(),
   //TODO: Fix incorporationRegime property name
-  incorporationRegime: z.string().nullable(),
+  incorporationRegime: z.string().optional(),
 });
 
 const CreatePersonSchema = PersonSchema.omit({ id: true });

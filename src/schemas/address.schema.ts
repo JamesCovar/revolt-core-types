@@ -15,15 +15,15 @@ const ADDRESS_TYPE_ENUM_SCHEMA = z.nativeEnum(ADDRESS_TYPE_ENUM);
 
 const BaseAddressSchema = z.object({
   id: IDSchema,
-  searchId: z.string().nullable(),
-  street: z.string().nullable(),
-  outdoorNumber: z.string().nullable(),
-  interiorNumber: z.string().nullable(),
-  district: z.string().nullable(),
-  city: z.string().nullable(),
-  state: z.string().nullable(),
-  zip: z.string().nullable(),
-  country: z.string().nullable(),
+  searchId: z.string().optional(),
+  street: z.string().optional(),
+  outdoorNumber: z.string().optional(),
+  interiorNumber: z.string().optional(),
+  district: z.string().optional(),
+  city: z.string().optional(),
+  state: z.string().optional(),
+  zip: z.string().optional(),
+  country: z.string().optional(),
   addressType: ADDRESS_TYPE_ENUM_SCHEMA,
 });
 
