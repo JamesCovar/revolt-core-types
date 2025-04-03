@@ -11,6 +11,12 @@ import {
   UpdatePersonDocumentSchema,
 } from "../schemas/document.schema";
 
+export enum DOCUMENT_SLOT_CATEGORIES {
+  "PERSON" = "PERSON",
+  "COMPANY" = "COMPANY",
+  "BANK" = "BANK",
+}
+
 export type GetCompanyDocument = z.infer<typeof GetCompanyDocumentSchema>;
 export type CreateCompanyDocument = z.infer<typeof CreateCompanyDocumentSchema>;
 export type UpdateCompanyDocument = z.infer<typeof UpdateCompanyDocumentSchema>;

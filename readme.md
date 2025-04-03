@@ -1,6 +1,10 @@
 # Changelog
 
-## [1.0.8] - 2025-03-21
+## [1.0.12] - 2025-04-02
+
+- Feat: Add DOCUMENT_SLOT_CATEGORIES and COMPANY_MEMBER_TYPE Enums
+
+## [1.0.11] - 2025-03-21
 
 - Fix: Change optional properties for nullables, schemas affected: [ADDRESS, PERSON, COMPANY]
 

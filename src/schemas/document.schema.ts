@@ -1,4 +1,7 @@
 import { z } from "zod";
+import { DOCUMENT_SLOT_CATEGORIES } from "../types/document.type";
+
+const DocumentSlotSchema = z.nativeEnum(DOCUMENT_SLOT_CATEGORIES);
 
 const DocumentBankSchema = z.object({
   id: z.string().uuid(),
@@ -46,4 +49,5 @@ export {
   PersonDocumentSchema,
   DocumentBankSchema,
   CompanyDocumentSchema,
+  DocumentSlotSchema,
 };
