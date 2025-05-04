@@ -18,6 +18,8 @@ const BankAccountSchema = z.object({
   accountType: BANK_ACCOUNT_TYPE_ENUM_SCHEMA,
   accountNumber: z.string(),
   routingNumber: z.string(),
+  country: z.string().length(2),
+  institutionName: z.string(),
 });
 
 const BankPersonSchema = z.object({

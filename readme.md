@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.13] - 2025-05-04
+
+- Fix: Update Bank Schema, adds institutionName and country
+
 ## [1.0.12] - 2025-04-02
 
 - Feat: Add DOCUMENT_SLOT_CATEGORIES and COMPANY_MEMBER_TYPE Enums
