@@ -25,9 +25,17 @@ const CreateFullCompanySchema = CompanySchema.extend({
   members: z.array(CreateFullMemberSchema),
 }).omit({ id: true });
 
+const GetFullCompanySchema = CompanySchema.extend({
+  addresses: z.array(BaseAddressSchema.omit({ id: true })),
+  bankAccounts: z.array(CreateFullBankSchema),
+  documents: z.array(CompanyDocumentSchema.omit({ id: true, companyId: true })),
+  members: z.array(CreateFullMemberSchema),
+});
+
 export {
   CreateCompanySchema,
   UpdateCompanySchema,
   GetCompanySchema,
   CreateFullCompanySchema,
+  GetFullCompanySchema,
 };

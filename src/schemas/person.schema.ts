@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { BaseAddressSchema } from "./address.schema";
-import { BankAccountSchema, CreateFullBankSchema } from "./bank.schema";
+import { CreateFullBankSchema } from "./bank.schema";
 import { PersonDocumentSchema } from "./document.schema";
 
 const PersonSchema = z.object({
@@ -29,10 +29,18 @@ const CreateFullPersonSchema = z
   })
   .omit({ id: true });
 
+const GetFullPersonSchema = z.object({
+  ...GetPersonSchema.shape,
+  addresses: z.array(BaseAddressSchema),
+  bankAccounts: z.array(CreateFullBankSchema),
+  documents: z.array(PersonDocumentSchema),
+});
+
 export {
   CreatePersonSchema,
   UpdatePersonSchema,
   GetPersonSchema,
   PersonSchema,
   CreateFullPersonSchema,
+  GetFullPersonSchema,
 };

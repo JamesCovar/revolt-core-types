@@ -1,6 +1,13 @@
 import { z } from "zod";
-import { CreateFullPersonSchema, PersonSchema } from "./person.schema";
-import { CreateFullCompanySchema } from "./company.schema";
+import {
+  CreateFullPersonSchema,
+  GetFullPersonSchema,
+  PersonSchema,
+} from "./person.schema";
+import {
+  CreateFullCompanySchema,
+  GetFullCompanySchema,
+} from "./company.schema";
 
 const IDSchema = z.string().uuid();
 
@@ -13,24 +20,24 @@ const VENDOR_TYPE_ENUM_SCHEMA = z.nativeEnum(VENDOR_TYPE_ENUM);
 
 const VendorCompanySchema = z.object({
   id: IDSchema,
-  personality: z.literal("COMPANY"),
+  personality: z.literal(VENDOR_TYPE_ENUM["COMPANY"]),
   company: IDSchema,
 });
 
 const VendorPersonSchema = z.object({
   id: IDSchema,
-  personality: z.literal("PERSON"),
+  personality: z.literal(VENDOR_TYPE_ENUM["PERSON"]),
   person: IDSchema,
 });
 
 const VendorSchema = z.discriminatedUnion("personality", [
   z.object({
     ...VendorCompanySchema.shape,
-    company: CreateFullCompanySchema,
+    company: GetFullCompanySchema,
   }),
   z.object({
     ...VendorPersonSchema.shape,
-    person: CreateFullPersonSchema,
+    person: GetFullPersonSchema,
   }),
 ]);
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.14] - 2025-05-04
+
+- Fix: Create GetFullCompany and GetFullPerson schema and types
+
 ## [1.0.13] - 2025-05-04
 
 - Fix: Update Bank Schema, adds institutionName and country
