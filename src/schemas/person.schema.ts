@@ -12,7 +12,6 @@ const PersonSchema = z.object({
   phone: z.string().nullable(),
   taxId: z.string().nullable(),
   residency: z.string().nullable(),
-  //TODO: Fix incorporationRegime property name
   incorporationRegime: z.string().nullable(),
 });
 

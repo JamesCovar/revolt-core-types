@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.15] - 2025-05-14
+
+- Feat: Add ContactPerson type
+
 ## [1.0.14] - 2025-05-04
 
 - Fix: Create GetFullCompany and GetFullPerson schema and types
